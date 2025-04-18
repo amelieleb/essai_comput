@@ -1,5 +1,5 @@
 # Bonjour
-# Équipe : Mélina Chicoine, Jérémy, Amélie et Amélie
+# Équipe : Mélina Chicoine, Jérémy, Amélie et Amélie Ironman-Rochon
 # Ce travail est pour la base de données de lépidoptères
 
 # Charger les scripts nécessaires
