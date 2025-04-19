@@ -10,7 +10,7 @@ correction_des_noms <- function(folder_path) {
   
   for (file in file_list) {
     df <- read_csv(file, show_col_types = FALSE)  # Charger le fichier
-    df <- nom_colonne_correction(df)  # Appliquer la correction
+    df <- nom_colonne_correction(df)  # Appliquer la correction (aller voir le script nom_colonne_correction pour voir les noms attendus et/ou les corrections)
     write_csv(df, file)  # Sauvegarder le fichier corrigé
   }
   
