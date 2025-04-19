@@ -17,7 +17,7 @@ correction_year_obs <- function(folder_path) {
     if ("year_obs" %in% names(df)) {
       df <- df %>%
         mutate(year_obs = as.character(year_obs),  # S'assurer que c'est du texte
-               year_obs = sapply(year_obs, corriger_annee))  # Appliquer la correction
+               year_obs = sapply(year_obs, corriger_annee))  # Appliquer la correction, pour les différentes correction aller voir le script : corriger_annee
       
       # Sauvegarder le fichier corrigé
       write_csv(df, file)
