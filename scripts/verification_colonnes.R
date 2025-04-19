@@ -1,6 +1,6 @@
 library(readr)
 
-# Liste des colonnes attendues
+# Liste des colonnes attendues pour que la base de donnée soit uniforme
 colonnes_attendues <- c(
   "observed_scientific_name", "year_obs", "day_obs", "time_obs",
   "dwc_event_date", "obs_variable", "obs_unit", "obs_value",
@@ -8,7 +8,7 @@ colonnes_attendues <- c(
   "publisher", "intellectual_rights", "license", "owner"
 )
 
-# Fonction pour vérifier la structure des fichiers CSV
+# Fonction pour vérifier la structure des fichiers CSV, va indiquer les colonnes qui manquent et ou les colonnes en trop
 verification_colonnes <- function(folder_path) {
   file_list <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
   
