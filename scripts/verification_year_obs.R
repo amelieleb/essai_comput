@@ -19,11 +19,11 @@ verification_year_obs <- function(folder_path) {
                !is.na(year_obs))  # Vérifie format YYYY et limite 1800-2050
       
       if (nrow(erreurs_year) > 0) {
-        message("⚠️ Erreur dans 'year_obs' du fichier ", basename(file), " : certaines valeurs ne respectent pas le format YYYY ou sont hors de la plage 1800-2050.")
-        print(erreurs_year %>% select(year_obs) %>% head(10))  # Affiche 10 exemples
+        message("Erreur dans 'year_obs' du fichier ", basename(file), " : certaines valeurs ne respectent pas le format YYYY ou sont hors de la plage 1800-2050.")
+        print(erreurs_year %>% select(year_obs) %>% head(10))  # Affiche les 10 premières lignes si erreurs présentes
       }
     } else {
-      message("⚠️ Le fichier ", basename(file), " ne contient pas la colonne 'year_obs'.")
+      message("Le fichier ", basename(file), " ne contient pas la colonne 'year_obs'.")
     }
   }
   
