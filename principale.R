@@ -12,7 +12,6 @@ source("scripts/verification_year_obs.R")   # Vérification du format de la date
 source("scripts/corriger_annee.R")          # Correction du format de la date
 source("scripts/correction_year_obs.R")     # Charger la correction de `year_obs`
 source("scripts/Fct_time.R")                # Correction du format du temps
-source("scripts/No_vide_fct.R")             # Remplacement des cases vides par NA
 source("scripts/type_colonne.R")            # Définit les types pour chaque colonne
 source("scripts/assemblage_csv.R")          # Assemble les donnees. appelle la fonction type_colonne_csv
 source("scripts/uniformisation_dates.R")    # met dwc_event_date en format YYYY-MM-DD
