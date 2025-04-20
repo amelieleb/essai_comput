@@ -5,33 +5,32 @@
 library(ritis)
 library(readr)
 
-
-# Boucle pour récupérer le TSN pour chaque nom scientifique
- TSN_ajout <- function(file="taxonomie.csv"){
-   
-   taxonomie <- read_csv(file)
-   
-   #Ajout d'une colonne TSN dans la base de données taxonomie
-   taxonomie$TSN <- NA
-   
-  for(i in 1:nrow(taxonomie)) {
+# Fonction pour récupérer les TSN depuis taxonomie.csv dans un dossier donné
+TSN_ajout <- function(folder_path = "lepidopteres") {
+  file_path <- file.path(folder_path, "taxonomie.csv")
+  
+  if (!file.exists(file_path)) {
+    stop("Le fichier taxonomie.csv n'existe pas dans le dossier ", folder_path)
+  }
+  
+  taxonomie <- read_csv(file_path, show_col_types = FALSE)
+  taxonomie$TSN <- NA
+  
+  for (i in seq_len(nrow(taxonomie))) {
+    nom_scientifique <- taxonomie$valid_scientific_name[i]
     
-    #Aller chercher le nom scientifique sur un site
-    nom_scientifique <- gsub(" ", "\\\\ ", taxonomie$valid_scientific_name[i])
+    # Recherche sur ITIS
+    result <- tryCatch({
+      itis_search(nom_scientifique)
+    }, error = function(e) return(NULL))
     
-    #Aller chercher le TSN associé au nom_scientifique
-    result <- itis_search(q = paste0("nameWOInd:", nom_scientifique))
-    
-    #Si la recherche retourne un résultat, obtenir le TSN
-    if(length(result) > 0) {
+    # Ajout du TSN si résultat disponible
+    if (!is.null(result) && "tsn" %in% names(result) && nrow(result) > 0) {
       taxonomie$TSN[i] <- result$tsn[1]
-      
     }
   }
-   
-   #Sauvegarder le fichier avec les TSN
-   write_csv(taxonomie, "taxonomie_TSN.csv")
-   
-   message("Ajout des TSN trouvés. Fichier sauvegardé")
- }
- 
+  
+  output_path <- file.path(folder_path, "taxonomie_TSN.csv")
+  write_csv(taxonomie, output_path)
+  message(" Ajout des TSN terminé. Fichier sauvegardé : ", output_path)
+}
