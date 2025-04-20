@@ -76,7 +76,7 @@ TSN_ajout()
 # ---- Création des tableaux ---- 
 
 # Lire le tableau de taxonomie
-taxo <- read.csv("taxonomie.csv", stringsAsFactors = FALSE)
+taxo <- read.csv("lepidopteres/taxonomie.csv", stringsAsFactors = FALSE)
 
 # TABLEAU PRINCIPAL
 principal <- toutes_donnees[, c("observed_scientific_name", "ID_principal", "year_obs", "day_obs", "time_obs", "dwc_event_date", 
