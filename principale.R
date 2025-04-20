@@ -18,6 +18,7 @@ source("scripts/uniformisation_dates.R")    # met dwc_event_date en format YYYY-
 source("scripts/conversion_date.R")         # met dwc_event_date en format Date
 source("scripts/coordonnees.R")             # Vérification de la validité des coordonnées
 source("scripts/TSN.R")                     # Ajout des TSN
+source("scripts/verification_valeurs.R")    # Vérification de d'autres erreurs possibles (date et obs_value)
 
 
 # ---- Fonctions de nettoyage des bases de données ----
@@ -66,7 +67,11 @@ toutes_donnees <- uniformisation_dates(toutes_donnees)
 message("Conversion de dwc_event_date en Date...")
 toutes_donnees <- conversion_date(toutes_donnees)
 
-# Étape 12 : Ajout des TSN dans la base de données taxonomie
+# Étape 12 : Vérification de d'autres erreurs possible
+message("Autres erreurs possibles")
+verification_valeurs(toutes_donnees)
+
+# Étape 13 : Ajout des TSN dans la base de données taxonomie
 message("Ajout des TSN...")
 TSN_ajout()
 
