@@ -7,6 +7,7 @@ source("scripts/nom_colonne_correction.R")
 correction_des_noms <- function(folder_path) {
   message("Correction des noms de colonnes dans tous les fichiers CSV...")
   file_list <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
+  file_list <- file_list[!grepl("taxonomie\\.csv$", file_list)]
   
   for (file in file_list) {
     df <- read_csv(file, show_col_types = FALSE)  # Charger le fichier
