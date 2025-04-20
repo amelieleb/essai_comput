@@ -55,24 +55,20 @@ fct_temps("lepidopteres")
 message("Vérification de la validité des coordonnées...")
 verification_coordonnees("lepidopteres")
 
-# Étape 9 : Remplir les cases vides par NA
-message("Remplissage des cases vides...")
-no_vide("lepidopteres")
-
-# Étape 10 : Exécuter l'assemblage des fichiers CSV
+# Étape 9 : Exécuter l'assemblage des fichiers CSV
 message("Chargement et assemblage des données...")
 toutes_donnees <- assemblage_csv("lepidopteres")
 
-# Étape 11 : Uniformisation_dates
+# Étape 10 : Uniformisation_dates
 message("Uniformisation des dates en YYYY-MM-DD...")
 toutes_donnees <- uniformisation_dates(toutes_donnees)
 
-# Étape 12 : Conversion de dwc_event_date en Date
+# Étape 11 : Conversion de dwc_event_date en Date
 message("Conversion de dwc_event_date en Date...")
 toutes_donnees <- conversion_date(toutes_donnees)
 
 
-# Étape 13 : Ajout des TSN dans la base de données taxonomie
+# Étape 12 : Ajout des TSN dans la base de données taxonomie
 message("Ajout des TSN...")
 TSN_ajout()
 
