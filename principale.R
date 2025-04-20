@@ -1,7 +1,10 @@
 # Équipe : Mélina Chicoine, Jérémy Mainville-Gamache, Amélie LeBlanc et Amélie Ironman-Rochon
+
 # Ce travail est pour la base de données de lépidoptères
+
 # Charger les libraries suivantes : dplyr, lubridate, readr, stringr, hms, chron,
-# Charger les scripts nécessaires
+
+# ---- Charger les scripts nécessaires ----
 source("scripts/sauvegarde_dossier.R")      # Pour avoir une version du dossier sans modification
 source("scripts/verification_colonnes.R")   # Vérification initiale des colonnes
 source("scripts/correction_des_noms.R")     # Correction des noms de colonnes. appelle la fonction nom_colonne_correction
@@ -14,7 +17,11 @@ source("scripts/type_colonne.R")            # Définit les types pour chaque col
 source("scripts/assemblage_csv.R")          # Assemble les donnees. appelle la fonction type_colonne_csv
 source("scripts/uniformisation_dates.R")    # met dwc_event_date en format YYYY-MM-DD
 source("scripts/conversion_date.R")         # met dwc_event_date en format Date
+source("scripts/coordonnees.R")             # Vérification de la validité des coordonnées
+source("scripts/TSN.R")                     # Ajout des TSN
 
+
+# ---- Fonctions de nettoyage des bases de données ----
 
 # Étape 0 : Créer une copie du dossier avant modifications
 sauvegarde_dossier("lepidopteres", "lepidopteres_sauvegarde")
@@ -44,6 +51,10 @@ verification_year_obs("lepidopteres")
 message("Écriture des valeurs de temps...")
 fct_temps("lepidopteres")
 
+# Étape 8 : On ajoute une colonne pour décrire si les coordonnées sont valides ou non
+message("Vérification de la validité des coordonnées...")
+verification_coordonnees("lepidopteres")
+
 # Étape 9 : Remplir les cases vides par NA
 message("Remplissage des cases vides...")
 no_vide("lepidopteres")
@@ -60,7 +71,15 @@ toutes_donnees <- uniformisation_dates(toutes_donnees)
 message("Conversion de dwc_event_date en Date...")
 toutes_donnees <- conversion_date(toutes_donnees)
 
-# --- Création des tableaux --- 
+
+# Étape 13 : Ajout des TSN dans la base de données taxonomie
+message("Ajout des TSN...")
+TSN_ajout()
+
+
+
+
+# ---- Création des tableaux ---- 
 # Créer ID_principale avec suffixe "p"
 toutes_donnees$ID_principale <- paste0(seq_len(nrow(toutes_donnees)), "p")
 
