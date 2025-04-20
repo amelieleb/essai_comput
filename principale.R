@@ -19,6 +19,7 @@ source("scripts/conversion_date.R")         # met dwc_event_date en format Date
 source("scripts/coordonnees.R")             # Vérification de la validité des coordonnées
 source("scripts/TSN.R")                     # Ajout des TSN
 source("scripts/verification_valeurs.R")    # Vérification de d'autres erreurs possibles (date et obs_value)
+source("scripts/creer_base_lepidoptere.R")  # Création des tables et SQL
 
 
 # ---- Fonctions de nettoyage des bases de données ----
@@ -75,113 +76,7 @@ verification_valeurs(toutes_donnees)
 message("Ajout des TSN...")
 TSN_ajout()
 
+# Étape 14 : Création des tableaux et SQL
+message("Création base de données dans SQL")
+creer_base_lepidoptere(toutes_donnees)
 
-
-
-# ---- Création des tableaux ---- 
-
-# Lire le tableau de taxonomie
-taxo <- read.csv("lepidopteres/taxonomie.csv", stringsAsFactors = FALSE)
-
-# TABLEAU PRINCIPAL
-principal <- toutes_donnees[, c("observed_scientific_name", "ID_principal", "year_obs", "day_obs", "time_obs", "dwc_event_date", 
-                                "obs_variable", "obs_unit", "obs_value", "lat", "lon", "valid_coords", "ID_source")]
-principal$ID_principal <- paste0(seq_len(nrow(principal)), "p")
-
-# TABLEAU SOURCE : unique + ID_source
-source <- unique(toutes_donnees[, c("ID_source", "creator", "original_source", "publisher", "intellectual_rights", "owner", "title", 
-                                    "license", "source_file")])
-source$ID_source <- paste0(seq_len(nrow(source)), "s")
-
-# TABLEAU TAXONOMIE
-taxo <- unique(taxo[, c("observed_scientific_name", "valid_scientific_name", "rank", "vernacular_fr", "kingdom", "phylum", "class", 
-                        "order", "family", "genus", "species", "TSN")])
-
-# Ajouter ID_source et taxo dans principal
-principal <- merge(principal, source, by = c("ID_source"), all.x = TRUE)
-principal <- merge(principal, taxo, by = c("observed_scientific_name"), all.x = TRUE)
-principal <- principal[, c("observed_scientific_name", "ID_principal", "year_obs", "day_obs", "time_obs", "dwc_event_date", 
-                           "obs_variable", "obs_unit", "obs_value", "lat", "lon", "valid_coords", "ID_source")]
-
-
-library(DBI)
-library(RSQLite)
-
-# Connexion à la base SQLite
-lepidoptere <- dbConnect(SQLite(), "lepidoptere.sqlite")
-
-
-
-# === CRÉATION DES TABLES ===
-
-# Table source
-creer_source <- "
-CREATE TABLE source (
-  ID_source               VARCHAR(50) PRIMARY KEY,
-  creator                 VARCHAR(100),
-  originial_source        VARCHAR(100),
-  publisher               VARCHAR(100),
-  intellectual_rights     VARCHAR(100),
-  owner                   VARCHAR(100),
-  title                   VARCHAR(200),
-  license                 VARCHAR(100),
-  source_file             VARCHAR(100),
-);"
-res <- dbSendQuery(lepidoptere, creer_source)
-dbClearResult(res)
-
-# Table principal
-creer_principal <- "
-CREATE TABLE principal (
-  observed_scientific_name VARCHAR(100) PRIMARY KEY,
-  ID_principal             VARCHAR(50),
-  ID_source                VARCHAR(50),
-  year_obs                 INTEGER,
-  day_obs                  INTEGER,
-  time_obs                 VARCHAR(50),
-  dwc_event_date           VARCHAR(50),
-  obs_variable             VARCHAR(50),
-  obs_unit                 INTEGER,
-  obs_value                NUMERIC,
-  lat                      REAL,
-  lon                      REAL,
-  valid_coords             BOLEAN,
-  FOREIGN KEY (ID_source) REFERENCES source(ID_source)
-);"
-res <- dbSendQuery(lepidoptere, creer_principal)
-dbClearResult(res)
-
-
-# Table taxonomie
-creer_taxo <- "
-CREATE TABLE taxo (
-  observed_scientific_name VARCHAR(100),
-  valid_scientific_name    VARCHAR(100),
-  rank                     VARCHAR(50),
-  vernacular_fr            VARCHAR(100),
-  kingdom                  VARCHAR(50),
-  phylum                   VARCHAR(50),
-  class                    VARCHAR(50),
-  order                    VARCHAR(50),
-  family                   VARCHAR(50),
-  genus                    VARCHAR(50),
-  species                  VARCHAR(100),
-  TSN                      VARCHAR(100),
-FOREIGN KEY (observed_scientific_name) REFERENCES principale(observed_scientific_name)
-);"
-res <- dbSendQuery(lepidoptere, creer_taxo)
-dbClearResult(res)
-
-
-# === INSERTION DES DONNÉES ===
-
-dbWriteTable(lepidoptere, "source", source, append = TRUE, row.names = FALSE)
-dbWriteTable(lepidoptere, "principal", principal, append = TRUE, row.names = FALSE)
-dbWriteTable(lepidoptere, "taxo", source, append = TRUE, row.names = FALSE)
-
-
-# Vérification (facultatif)
-print(dbListTables(lepidoptere))
-
-# Déconnexion
-dbDisconnect(lepidoptere)
