@@ -67,7 +67,6 @@ toutes_donnees <- uniformisation_dates(toutes_donnees)
 message("Conversion de dwc_event_date en Date...")
 toutes_donnees <- conversion_date(toutes_donnees)
 
-
 # Étape 12 : Ajout des TSN dans la base de données taxonomie
 message("Ajout des TSN...")
 TSN_ajout()
