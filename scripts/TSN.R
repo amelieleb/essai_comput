@@ -1,36 +1,41 @@
-#Script qui permet d'obtenir les TSN des noms scientifiques et de les ajouter
-#dans une nouvelle colonne du fichier excel taxonomie.csv
+# Script qui permet d'obtenir les TSN des noms scientifiques 
+# et de les ajouter dans une nouvelle colonne du fichier taxonomie.csv
 
-#Chargement des packages nécessaire
+# Chargement des packages nécessaires
 library(ritis)
 library(readr)
 
-# Fonction pour récupérer les TSN depuis taxonomie.csv dans un dossier donné
-TSN_ajout <- function(folder_path = "lepidopteres") {
-  file_path <- file.path(folder_path, "taxonomie.csv")
+# Boucle pour récupérer le TSN pour chaque nom scientifique
+TSN_ajout <- function(folder = "lepidopteres") {
   
-  if (!file.exists(file_path)) {
-    stop("Le fichier taxonomie.csv n'existe pas dans le dossier ", folder_path)
-  }
+  # Chemin d'entrée
+  input_file <- file.path(folder, "taxonomie.csv")
   
-  taxonomie <- read_csv(file_path, show_col_types = FALSE)
+  # Lire le fichier
+  taxonomie <- read_csv(input_file, show_col_types = FALSE)
+  
+  # Ajouter une colonne TSN vide
   taxonomie$TSN <- NA
   
-  for (i in seq_len(nrow(taxonomie))) {
-    nom_scientifique <- taxonomie$valid_scientific_name[i]
+  for(i in 1:nrow(taxonomie)) {
     
-    # Recherche sur ITIS
-    result <- tryCatch({
-      itis_search(nom_scientifique)
-    }, error = function(e) return(NULL))
+    # Préparer le nom scientifique
+    nom_scientifique <- gsub(" ", "\\\\ ", taxonomie$valid_scientific_name[i])
     
-    # Ajout du TSN si résultat disponible
-    if (!is.null(result) && "tsn" %in% names(result) && nrow(result) > 0) {
+    # Recherche du TSN
+    result <- itis_search(q = paste0("nameWOInd:", nom_scientifique))
+    
+    # Ajouter le TSN s'il y a un résultat
+    if(length(result) > 0) {
       taxonomie$TSN[i] <- result$tsn[1]
     }
   }
   
-  output_path <- file.path(folder_path, "taxonomie_TSN.csv")
-  write_csv(taxonomie, output_path)
-  message(" Ajout des TSN terminé. Fichier sauvegardé : ", output_path)
+  # Chemin de sortie
+  output_file <- file.path(folder, "taxonomie_TSN.csv")
+  
+  # Sauvegarder le fichier avec les TSN
+  write_csv(taxonomie, output_file)
+  
+  message("Ajout des TSN trouvés. Fichier sauvegardé dans : ", output_file)
 }
