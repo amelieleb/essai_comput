@@ -2,7 +2,7 @@
 
 # Ce travail est pour la base de données de lépidoptères
 
-# Charger les libraries suivantes : dplyr, lubridate, readr, stringr, hms, chron,
+# Charger les libraries suivantes : dplyr, lubridate, readr, stringr, hms, chron, ritis
 
 # ---- Charger les scripts nécessaires ----
 source("scripts/sauvegarde_dossier.R")      # Pour avoir une version du dossier sans modification
