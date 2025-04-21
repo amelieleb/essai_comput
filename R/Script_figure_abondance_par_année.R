@@ -1,5 +1,9 @@
 # Créer un tableau avec le nombre d'espèces par année
-library(dplyr)
+library(dplyr)7
+
+toutes_donnees_quebec <- toutes_donnees %>%
+  dplyr::filter(lat >= 45 & lat <= 62,
+                lon >= -80 & lon <= -57)
 
 especes_par_annee <- toutes_donnees_quebec %>%
   group_by(year_obs) %>%
