@@ -51,17 +51,17 @@ list(
   # 8. Uniformise le format des dates en YYYY-MM-DD
   tar_target(uniformise, uniformisation_dates(donnees_assemblees)),
   
-  # 8. Conersion de dwc_event_date en une date
+  # 9. Conersion de dwc_event_date en une date
   tar_target(converti_date, conversion_date(uniformise)),
   
-  # 9. Ajoute des TSN dans la base de données taxonomie
+  # 10. Ajoute des TSN dans la base de données taxonomie
   tar_target(tsn, TSN_ajout("lepidopteres")),
-  # 10. Cible ajouté pour utiliser taxonomie_TSN.csv
+  # 11. Cible ajouté pour utiliser taxonomie_TSN.csv
   tar_target(
     taxonomie_fichier,
     read_csv("lepidopteres/taxonomie_TSN.csv", show_col_types = FALSE)
   ),
-  # 11. Production de la base de données
+  # 12. Production de la base de données
   # UTILISE LA CIBLE POUR ÉVITER LES ERREURS
   tar_target(
     db_finale,
