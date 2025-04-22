@@ -47,20 +47,20 @@ Une fois la base de données formée, il a été possible de produire les figure
 
 
 # Résultats
-Only TIFF, EPS, and high-resolution PDF for Mac or PC are allowed for
-figures that will appear in the main text, and images must be final
-size. Authors may submit U3D or PRC files for 3D images; these must be
-accompanied by 2D representations in TIFF, EPS, or high-resolution PDF
-format. Color images must be in RGB (red, green, blue) mode. Include the
-font files for any text.
 
-Figures and Tables should be labelled and referenced in the standard way
-using the `\label{}` and `\ref{}` commands.
+```{r, echo = FALSE}
+knitr::include_graphics("figures/figure_abondance.png")
+```
 
-Figure $$fig:frog$$ shows an example of how to insert a column-wide
-figure. To insert a figure wider than one column, please use the
-`\begin{figure*}...\end{figure*}` environment. Figures wider than one
-column should be sized to 11.4 cm or 17.8 cm wide.
+
+```{r, echo = FALSE}
+knitr::include_graphics("figures/figure_diversite.png")
+```
+
+```{r, echo = FALSE}
+knitr::include_graphics("figures/figure_richesse.png")
+```
+
 
 # Discussion
 
