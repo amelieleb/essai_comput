@@ -12,7 +12,7 @@ library(tarchetypes)
 
 # Définir les options de la pipeline
 tar_option_set(
-  packages = c("dplyr", "readr", "stringr", "lubridate", "ritis", "DBI", "RSQLite"),
+  packages = c("dplyr", "readr", "stringr", "lubridate", "ritis", "DBI", "RSQLite", "viridis", "ggplot2", "sp","raster"),
   format = "rds"
 )
 
@@ -72,5 +72,34 @@ list(
   tar_target(
     db_finale,
     creer_base_lepidoptere(converti_date, taxonomie_fichier)
+  ),
+  
+  # 13. Création de la première figure 
+  tar_target(
+    figure_abondance,
+    {
+      db_finale  # force la dépendance
+      plot_abondance_lepidoptere("lepidoptere.sqlite", "figures/figure_abondance.png")
+    },format = "file"
+  ),
+  
+  # 14. Génération du graphique de diversité
+  tar_target(
+    figure_diversite,
+    {
+      db_finale  # force la dépendance sans le passer comme argument
+      plot_diversite_lepidoptere("lepidoptere.sqlite", "figures/figure_diversite.png")
+    },
+    format = "file"
+  ),
+  
+  # 15. Génération du graphique de richesse spécifique (8 cartes)
+  tar_target(
+    figure_richesse,
+    {
+      db_finale  # assure la dépendance
+      analyse_richesse_lepidoptere("lepidoptere.sqlite", "figures/figure_richesse.png")
+    },
+    format = "file"
   )
-)
+)  
