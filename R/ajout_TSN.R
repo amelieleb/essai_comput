@@ -13,7 +13,7 @@ library(ritis)
 library(readr)
 
 # Boucle pour récupérer le TSN pour chaque nom scientifique
-TSN_ajout <- function(folder = "lepidopteres") {
+ajout_TSN <- function(folder = "lepidopteres") {
   
   # Lire le fichier
   taxonomie <- read_csv(file.path(folder, "taxonomie.csv"), show_col_types = FALSE)
