@@ -23,7 +23,7 @@ assemblage_csv <- function(folder_path) {
   
   # Charger et fusionner tous les fichiers en ajoutant une colonne `source_file`
   data_list <- lapply(file_list, function(file) {
-    df <- definition_type_colone(file)  # Appliquer les types de colonnes
+    df <- definition_type_colonne(file)  # Appliquer les types de colonnes
     df <- mutate(df, source_file = basename(file))  # Ajouter la colonne source
     return(df)
   })
