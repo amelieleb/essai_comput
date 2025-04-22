@@ -10,7 +10,7 @@ library(readr)
 library(dplyr)
 
 # Fonction qui corrige le format des valeurs de temps
-fct_temps <- function(folder_path) {
+uniformisation_time_obs <- function(folder_path) {
   message("\n Début de la correction des valeurs de temps...\n")
   
   # Lister les fichiers .csv sauf taxonomie.csv

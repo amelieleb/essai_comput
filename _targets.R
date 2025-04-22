@@ -42,7 +42,7 @@ list(
   tar_target(verif_year2, verification_year_obs("lepidopteres")),
   
   # 4. Applique la correction aux valeurs de "obs_time" dans un format différent
-  tar_target(temps_corrige, fct_temps("lepidopteres")),
+  tar_target(temps_corrige, uniformisation_time_obs("lepidopteres")),
   
   # 5. Applique les corrections nécessaires aux valeurs des coordonnées
   tar_target(coord_valide, verification_coordonnees("lepidopteres")),
