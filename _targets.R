@@ -57,7 +57,7 @@ list(
   # 8. Uniformise le format des dates en YYYY-MM-DD
   tar_target(uniformise, uniformisation_dates(donnees_assemblees)),
   
-  # 9. Conersion de dwc_event_date en une date
+  # 9. Conversion de dwc_event_date en une date
   tar_target(converti_date, conversion_date(uniformise)),
   
   # 10. Ajoute des TSN dans la base de données taxonomie
