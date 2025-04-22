@@ -103,43 +103,43 @@ R/
 
 # Description des fichiers
 
-Chaque script contenu dans le dossier R/ correspond à une étape du pipeline de nettoyage, de transformation ou de structuration des données :
+Chaque script contenu dans le dossier `R/` correspond à une étape du pipeline de nettoyage, de transformation ou de structuration des données :
 
-ajout_TSN.R : ajoute les identifiants taxonomiques TSN aux noms scientifiques à l’aide du package {ritis}.
+-   `ajout_TSN.R` : ajoute les identifiants taxonomiques TSN aux noms scientifiques à l’aide du package `{ritis}`.
 
-assemblage_csv.R : assemble tous les fichiers .csv (sauf taxonomie) en une seule table complète des observations.
+-   `assemblage_csv.R` : assemble tous les fichiers `.csv` (sauf taxonomie) en une seule table complète des observations.
 
-conversion_date.R : convertit la colonne dwc_event_date au format Date pour les analyses temporelles.
+-   `conversion_date.R` : convertit la colonne `dwc_event_date` au format `Date` pour les analyses temporelles.
 
-correction_nom_colonne.R : harmonise les noms de colonnes selon la référence définie dans liste_nom_colonne.R.
+-   `correction_nom_colonne.R` : harmonise les noms de colonnes selon la référence définie dans `liste_nom_colonne.R`.
 
-correction_year_obs.R : corrige les années d’observation invalides (hors intervalle 1800–2050), remplaçant les erreurs par NA ou une valeur plausible.
+-   `correction_year_obs.R` : met les valeurs en caractères pour pouvoir appliquer une correction selon la `liste_correction_year_obs.R`
 
-creer_base_lepidoptere.R : crée une base de données SQLite finale et relationnelle à partir des données nettoyées.
+-   `creer_base_lepidoptere.R` : crée une base de données SQLite finale et relationnelle à partir des données nettoyées.
 
-definition_type_colonne.R : corrige les types de colonnes mal interprétés (ex : chaînes de caractères lues comme numériques).
+-   `definition_type_colonne.R` : corrige les types de colonnes mal interprétés (ex : chaînes de caractères lues comme numériques).
 
-liste_correction_year_obs.R : contient les règles manuelles de correction des années d’observation erronées.
+-   `liste_correction_year_obs.R` : contient les règles manuelles de correction des années d’observation erronées.
 
-liste_nom_colonne.R : liste de référence des noms de colonnes attendus dans les fichiers d’observation.
+-   `liste_nom_colonne.R` : liste de référence des noms de colonnes attendus dans les fichiers d’observation.
 
-sauvegarde_dossier.R : génère une copie de sauvegarde du dossier lepidopteres/ avant toute modification par le pipeline.
+-   `sauvegarde_dossier.R` : génère une copie de sauvegarde du dossier `lepidopteres/` avant toute modification par le pipeline.
 
-Script_figure_abondance_par_année.R : script (actuellement vide) pour produire des figures d’abondance annuelle.
+-   `Script_figure_abondance_par_année.R` : 
 
-uniformisation_dates.R : standardise les dates (ex. 2023-4-7 → 2023-04-07) pour une cohérence entre les fichiers.
+-   `uniformisation_dates.R` : standardise les dates (ex. 2023-4-7 → 2023-04-07) pour une cohérence entre les fichiers.
 
-uniformisation_obs_variable.R : détecte et uniformise les valeurs de obs_variable (par ex. "presence" → "occurrence").
+-   `uniformisation_obs_variable.R` : détecte et uniformise les valeurs de `obs_variable` (par ex. "presence" → "occurrence").
 
-uniformisation_time_obs.R : reformate les valeurs time_obs du type HHMMSS en HH:MM:SS.
+-   `uniformisation_time_obs.R` : reformate les valeurs `time_obs` du type `HHMMSS` en `HH:MM:SS`.
 
-verification_colonnes.R : vérifie la présence et l’ordre des colonnes obligatoires dans chaque fichier.
+-   `verification_colonnes.R` : vérifie la présence et l’ordre des colonnes obligatoires dans chaque fichier.
 
-verification_coordonnees.R : ajoute une colonne valid_coords selon la validité des coordonnées (lat entre 0 et 90, lon entre -180 et 0).
+-   `verification_coordonnees.R` : ajoute une colonne `valid_coords` selon la validité des coordonnées (`lat` entre 0 et 90, `lon` entre -180 et 0).
 
-verification_valeurs.R : détecte des valeurs aberrantes ou manquantes dans des colonnes comme obs_value, day_obs ou obs_variable.
+-   `verification_valeurs.R` : 
 
-verification_year_obs.R : repère les années aberrantes ou absentes dans la colonne year_obs.
+-   `verification_year_obs.R` : repère les années aberrantes ou absentes dans la colonne `year_obs`.
 
 # Instructions
 
