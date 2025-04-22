@@ -101,5 +101,23 @@ list(
       analyse_richesse_lepidoptere("lepidoptere.sqlite", "figures/figure_richesse.png")
     },
     format = "file"
+  ),
+  
+  # 16. Génération automatique du rapport Markdown
+  tar_target(
+    rapport,
+    {
+      figure_abondance
+      figure_diversite
+      figure_richesse
+      rmarkdown::render(
+        input = "rapport_initial.Rmd",
+        output_file = "rapport_final.html",
+        output_dir = "rapport",
+        quiet = TRUE
+      )
+      "rapport/rapport_final.html"
+    },
+    format = "file"
   )
-)  
+)

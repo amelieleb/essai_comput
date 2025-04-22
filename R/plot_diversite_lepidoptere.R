@@ -1,3 +1,14 @@
+######################################################
+# Ce script permet d'obtenir un graphique du nombre d'espèces de lépidoptères par
+# année pour comparer leur diversité spécifique. Seule les observations du Québec
+# sont prises en compte pour l'analyse, et le nombre d'espèces observées est 
+# déterminé par observed_scientific_name.
+
+# Créé par Amélie LeBlanc et Amélie Ironman-Rochon
+# Date : Création en avril 2025
+######################################################
+
+
 plot_diversite_lepidoptere <- function(db_path = "lepidoptere.sqlite", output_path = "figures/figure_diversite.png") {
   library(DBI)
   library(RSQLite)

@@ -1,3 +1,14 @@
+######################################################
+# Ce script permet d'obtenir un graphique de l'abondance relative (%) des trois 
+# espèces principales par groupes d'années (20 ans) pour comparer la présence
+# des différentes espèces.Seule les observations du Québec sont prises en compte 
+# pour l'analyse, et l'abondance relative est déterminé par observed_scientific_name.
+
+# Créé par Amélie LeBlanc
+# Date : Création en avril 2025
+######################################################
+
+
 plot_abondance_lepidoptere <- function(db_path = "lepidoptere.sqlite", output_path = "figures/figure_abondance.png") {
   # Librairies
   library(DBI)

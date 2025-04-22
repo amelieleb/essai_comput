@@ -7,7 +7,7 @@
 # Résultat : un seul fichier PNG avec les 8 cartes côte à côte.
 #
 # Créé par Amélie LeBlanc
-# Date : Création en avril 2025
+# Date : Création en avril 2025 
 ######################################################
 
 analyse_richesse_lepidoptere <- function(db_path = "lepidoptere.sqlite",
