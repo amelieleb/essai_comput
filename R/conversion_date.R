@@ -1,3 +1,12 @@
+######################################################
+# Ce script convertis dwc_event_date` en format Date (YYYY-MM-DD) après l'assemblage
+
+# Créé par Mélina Chicoine
+# Date : Création en avril 2025
+######################################################
+
+
+# Librairies nécessaires
 library(dplyr)
 library(lubridate)
 
