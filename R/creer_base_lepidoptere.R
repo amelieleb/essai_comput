@@ -125,7 +125,7 @@ creer_base_lepidoptere <- function(toutes_donnees, taxo, nom_sqlite = "lepidopte
     "ID_source", "ID_creator", "ID_owning", "title", "license", "source_file"
   )], append = TRUE, row.names = FALSE)
   dbWriteTable(lepidoptere, "principale", principale, append = TRUE, row.names = FALSE)
-  dbWriteTable(lepidoptere, "Taxonomie", taxo, append = TRUE, row.names = FALSE)
+  dbWriteTable(lepidoptere, "taxonomie", taxo, append = TRUE, row.names = FALSE)
   
   message("Base de données SQLite créée avec succès : ", nom_sqlite)
   print(dbListTables(lepidoptere))
