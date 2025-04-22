@@ -3,7 +3,7 @@ title: "Projet de session BIO500 - Changements spatial et temporel des lépidopt
 author: "Mélina Chicoine, Amélie LeBlanc, Amélie Ironman-Rochon et Jérémy Mainville-Gamache"
 date: "2025-04-22"
 output: html_document
-biblography: "Bibliographie.bib"
+bibliography: "Bibliographie.bib"
 ---
 
 
