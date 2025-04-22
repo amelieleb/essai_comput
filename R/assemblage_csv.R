@@ -1,3 +1,13 @@
+######################################################
+# Ce script assemble toutes les données donc ex: chaque fichier .csv dans lepidoptere dans un object 
+# Il ajoute également la colonne source_file pour savoir d'où proviennent les fichiers une fois qu'ils sont combinés ensemble
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+
+# Librairie nécessaire
 library(dplyr)
 
 # Fonction pour assembler tous les fichiers CSV sauf taxonomie.csv
@@ -20,6 +30,7 @@ assemblage_csv <- function(folder_path) {
   
   all_data <- bind_rows(data_list)
   
+  # Message affiché à la fin 
   message("Assemblage terminé avec ajout de la colonne `source_file`.")
   return(all_data)
 }
