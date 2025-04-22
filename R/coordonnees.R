@@ -1,5 +1,14 @@
-library(dplyr)
+######################################################
+# Ce script vérifie si les coordonnées sont valides et ajoute une colonne : valid_coords, pour indiquer si les coordonnés sont valides
+
+# Créé par Amélie LeBlanc
+# Date : Création en avril 2025
+######################################################
+
+
+#Librairie nécessaire
 library(readr)
+library(dplyr)
 
 # Fonction pour vérifier si les coordonnées sont valides
 verification_coordonnees <- function(folder_path) {
