@@ -1,8 +1,10 @@
-Intégration et nettoyage de données entomologiques de lépidoptères
+::: {align="center"}
+# Intégration et nettoyage de données entomologiques de lépidoptères
+:::
 
 # Description du projet
 
-Ce projet vise à automatiser l'importation, la vérification, la transformation et l'intégration de jeux de données entomologiques historiques et contemporains portant sur des observations de lépidoptères. Il permet de produire une base de données relationnelle SQLite normalisée, reproductible, et connectée à des ressources taxonomiques officielles.
+Ce projet vise à automatiser l'importation, la vérification, la transformation et l'intégration de jeux de données entomologiques portant sur des observations de lépidoptères variant dans le temps (années) et dans l'espace. Il permet de produire une base de données relationnelle SQLite normalisée, reproductible, et connectée à des ressources taxonomiques officielles.
 
 ### Objectifs
 
@@ -18,17 +20,29 @@ Ce projet vise à automatiser l'importation, la vérification, la transformation
 
 -   Rendre le processus entièrement reproductible grâce au package targets.
 
+-   Produire des figures basées sur les données
+
+-   Réaliser un rapport avec une analyse des figures et des données
+
 ### Contexte
 
 Ce projet s'inscrit dans une démarche de standardisation de données entomologiques dans le cadre d'études sur la répartition et l’abondance des papillons au Québec. Les jeux de données proviennent de sources variées, et leur hétérogénéité nécessite un important travail de préparation avant analyse.
 
+Il s'agit d'un travail réalisé dans le cours universitaire Méthodes en écologie computationnelle à l'Université de Sherbrooke dans le programme d'écologie (biologie).
+
 ### Données
 
-Les données se trouvent dans le dossier lepidopteres/ et consistent en :
+Attention, les données ont été fournies par Victor Cameron et regroupent des contributions de plusieurs collaborateurs. Il faut donc les récupérer au près de Victor Cameron : [Victor.Cameron\@USherbrooke.ca](mailto:Victor.Cameron@USherbrooke.ca){.email}
 
-Des fichiers .csv contenant des observations géoréférencées de lépidoptères répartit selon les années
+Après le téléchargement lepidopteres.zip
 
-Un fichier taxonomie.csv listant les noms valides utilisés dans les jeux de données ainsi que des informations sur les espèces de papillons
+Les données se trouvent dans le dossier `lepidopteres/` et consistent en :
+
+-   Des fichiers `.csv` contenant des observations géoréférencées de lépidoptères, réparties selon les années.
+-   Un fichier `taxonomie.csv` listant les noms valides utilisés ainsi que des informations taxonomiques sur les espèces observées.
+-   Un fichier `readme.md`expliquant les jeux de données et les différentes colonnes
+
+Ces données devront être ajoutées à votre répertoir, voir la section : structure du répertoir et comment exécuter le projet pour voir où placer le dossier lepidopteres
 
 ### Méthodes
 
@@ -64,13 +78,13 @@ Un fichier lepidoptere.sqlite contenant 5 tables relationnelles :
 -   source
 -   creator
 -   owning
--   Taxonomie
+-   taxonomie
 
 # Structure du répertoire
 
 ``` bash
 .
-├── R/                        # Scripts de fonctions
+├── R/                         # Scripts de fonctions
 ├── lepidopteres/             # Données brutes .csv
 ├── lepidopteres_sauvegarde/  # Sauvegarde automatique des données
 ├── _targets.R                # Fichier principal du pipeline
