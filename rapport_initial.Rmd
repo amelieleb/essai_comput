@@ -7,7 +7,7 @@ bibliography: "Bibliographie.bib"
 ---
 
 
-Voici le [lien](https://github.com/amelieleb/Final_mod.git) pour le GitHub de notre projet.
+Voici le [lien](https://github.com/amelieleb/essai_comput.git) pour le GitHub de notre projet.
 
 
 ## abstract:
@@ -26,14 +26,14 @@ Une fois la base de données formée, il a été possible de produire les figure
 
 
 # Résultats
-```{r, echo = FALSE}
-knitr::include_graphics("figures/figure_abondance.png")
-```
-Figure 1. Diversité d'espèces de lépidoptères observés au Québec entre les années 1865 et 2023.
-
 
 ```{r, echo = FALSE}
 knitr::include_graphics("figures/figure_diversite.png")
+```
+Figure 1. Diversité d'espèces de lépidoptères observés au Québec entre les années 1865 et 2023.
+
+```{r, echo = FALSE}
+knitr::include_graphics("figures/figure_abondance.png")
 ```
 Figure 2. Abondance relative des trois espèces les plus abondantes pour chaque groupes d'années de 20 ans, ainsi que leur nom scientifique.
 
