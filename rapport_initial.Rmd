@@ -1,5 +1,5 @@
 ---
-title: "Projet de session BIO500 - Changement spatiale et temporel des lépidoptères"
+title: "Projet de session BIO500 - Changements spatial et temporel des lépidoptères"
 author: "Mélina Chicoine, Amélie LeBlanc, Amélie Ironman-Rochon et Jérémy Mainville-Gamache"
 date: "2025-04-22"
 output: html_document
