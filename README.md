@@ -40,29 +40,29 @@ Les données se trouvant dans le dossier lepidopteres/ :
 
 Le projet utilise les outils suivants :
 
--   R et les packages dplyr, readr, stringr, lubridate, ritis, DBI, RSQLite, viridis, ggplot2, sp, raster
+-   R et les packages dplyr, readr, stringr, lubridate, ritis, DBI, RSQLite, viridis, ggplot2, sp, raster.
 
 -   Un pipeline targets structuré pour exécuter :
 
-    -   sauvegarde des fichiers,
+    -   Sauvegarde des fichiers,
 
     -   Validation des colonnes,
 
     -   Correction des noms et des années,
 
-    -   Correction d'erreurs communes ou de formatage
+    -   Correction d'erreurs communes ou de formatage,
 
-    -   Uniformisation de la présentation des données
+    -   Uniformisation de la présentation des données,
 
     -   Harmonisation des temps et des termes (presence, abundance...),
 
     -   Ajout des identifiants TSN,
 
-    -   Création de la base SQLite relationnelle
+    -   Création de la base SQLite relationnelle,
 
-    -   Création de figures selon les données
+    -   Création de figures selon les données,
 
-    -   Création d'un rapport avec les figures pour l'interprétation des données
+    -   Création d'un rapport avec les figures pour l'interprétation des données.
 
 ### Résultats
 
