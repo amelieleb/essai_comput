@@ -1,3 +1,12 @@
+######################################################
+# Ce script mets les valeurs de la colonne years_obs en caractère pour appliquer une correction pour uniformisé le format d'affichage 
+# Attention, le script appelle une autre fonction : corriger_annee, présente dans corriger_annee.R. Cette fonction contient les corrections nécessaire selon le format d'affichage des années initiales
+
+# Créé par Mélina Chicoine et Amélie Ironman-Rochon
+# Date : Création en mars 2025
+######################################################
+
+#Librairies nécessaires
 library(readr)
 library(dplyr)
 library(lubridate)
@@ -27,5 +36,6 @@ correction_year_obs <- function(folder_path) {
     }
   }
   
+  # Message affiché quand tout est terminé 
   message("\n Correction des années terminée.")
 }
