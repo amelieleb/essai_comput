@@ -24,7 +24,13 @@ Ce projet s'inscrit dans une démarche de standardisation de données entomologi
 
 ### Données
 
-Les données se trouvent dans le dossier lepidopteres/ et consistent en :
+Les données ont été fournies par Victor Cameron : Victor.Cameron@USherbrooke.ca 
+Elles proviennent de plusieurs collaborateurs. 
+
+Lorsque vous possédez le dossier : lepidopteres.zip, simplement ouvrir pour obtenir le dossier lepidoptere. 
+Voir section structure du répertoir pour voir où mettre le dossier lepidoptere
+
+Les données se trouvant dans le dossier lepidopteres/ : 
 
 Des fichiers .csv contenant des observations géoréférencées de lépidoptères répartit selon les années
 
@@ -125,7 +131,7 @@ Chaque script contenu dans le dossier `R/` correspond à une étape du pipeline 
 
 -   `sauvegarde_dossier.R` : génère une copie de sauvegarde du dossier `lepidopteres/` avant toute modification par le pipeline.
 
--   `Script_figure_abondance_par_année.R` : 
+-   `Script_figure_abondance_par_année.R` :
 
 -   `uniformisation_dates.R` : standardise les dates (ex. 2023-4-7 → 2023-04-07) pour une cohérence entre les fichiers.
 
@@ -137,7 +143,7 @@ Chaque script contenu dans le dossier `R/` correspond à une étape du pipeline 
 
 -   `verification_coordonnees.R` : ajoute une colonne `valid_coords` selon la validité des coordonnées (`lat` entre 0 et 90, `lon` entre -180 et 0).
 
--   `verification_valeurs.R` : 
+-   `verification_valeurs.R` :
 
 -   `verification_year_obs.R` : repère les années aberrantes ou absentes dans la colonne `year_obs`.
 
