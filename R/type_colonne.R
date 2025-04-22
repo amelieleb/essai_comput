@@ -1,3 +1,11 @@
+######################################################
+# Ce script définit le type de chaque colonne
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+# Librairies nécessaires
 library(readr)
 library(dplyr)
 

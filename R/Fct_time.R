@@ -1,6 +1,15 @@
+######################################################
+# Ce script corrige le format des valeurs de temps
+
+# Créé par Jérémy Mainville-Gamache
+# Date : Création en avril 2025
+######################################################
+
+#Librairies nécessaires
 library(readr)
 library(dplyr)
 
+# Fonction qui corrige le format des valeurs de temps
 fct_temps <- function(folder_path) {
   message("\n Début de la correction des valeurs de temps...\n")
   

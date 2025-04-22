@@ -1,3 +1,15 @@
+######################################################
+# Ce script vérifie les colonnes présentes dans tous les fichiers .csv fournit. Cela est nécessaire pour avoir un assemblage fluide. 
+# Attention, ce script de corrige pas les erreurs, il permet simplement de mentionner la détection de mauvaises colonnes. 
+# Pour la correction des colonnes, il faut utiliser le script correction_des_noms.R et nom_colonne_correction.R
+
+# Le script est roulé 2 fois, une fois avant et une fois après les corrections pour s'assurer que toutes les erreurs ont été corrigées
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+# Librairie nécessaire
 library(readr)
 
 # Liste des colonnes attendues pour que la base de donnée soit uniforme

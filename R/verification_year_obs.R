@@ -1,3 +1,13 @@
+######################################################
+# Ce script vérifie que `year_obs` est au format YYYY et entre 1800 et 2050
+# Attention, une fois les annéee 2050 dépassées il faudra changer la limite
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+
+# Librairies nécessaires
 library(readr)
 library(dplyr)
 

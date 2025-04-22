@@ -1,3 +1,13 @@
+######################################################
+# Ce script énumère les erreurs possible dans les noms de colonnes et les corrections souhaitées
+# Il est intégré dans la fonction corrections_des_noms
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+
+
 library(dplyr)
 library(stringr)
 

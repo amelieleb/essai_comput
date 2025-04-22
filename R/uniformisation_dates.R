@@ -1,3 +1,11 @@
+######################################################
+# Ce script uniformise le format des dates dans la colones dwc_event_date
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+# Librairies nécessaires
 library(dplyr)
 library(stringr)
 

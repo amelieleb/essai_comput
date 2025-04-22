@@ -1,3 +1,13 @@
+######################################################
+# Ce script permet de faire une sauvegarde des fichiers des données donc tous les csv présents dans lepidopteres avant toutes modifications
+# Ainsi, à la fin on obtient un dossier : lepidoteres_sauvegarde.csv, qui contient toutes les données "raw"
+
+# Créé par Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+
+# Nom de la fonction = sauvegarde_dossier
 sauvegarde_dossier <- function(original_folder, backup_folder) {
   if (!dir.exists(original_folder)) {
     stop(paste("Le dossier original", original_folder, "n'existe pas."))

@@ -2,14 +2,12 @@
 # Ce script permet de détecter et de changer les "presence"
 # en "occurrence" et de tester pour des erreurs possible d'ortographes dans l'écriture des mots occurence, abundance et presence
 
-# Jérémy Mainville-Gamache
+# Créé par Jérémy Mainville-Gamache et Mélina Chicoine
 # Date: 2025-04-21
 ##########################################################
 
 
-
-
-
+# Librairies nécessaire
 library(readr)
 library(dplyr)
 library(stringr)

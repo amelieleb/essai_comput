@@ -1,3 +1,11 @@
+######################################################
+# Ce script crée des tables puis les mets dans une base de donnée SQL et injecte les données à la fin
+
+# Créé par Mélina Chicoine, Amélie LeBlanc, Amélie Ironman-Rochon et Jérémy Mainville-Gamache
+# Date : Création en avril 2025
+######################################################
+
+#Librairies nécessaires
 library(DBI)
 library(RSQLite)
 library(dplyr)

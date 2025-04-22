@@ -1,5 +1,12 @@
-# Script qui permet d'obtenir les TSN des noms scientifiques 
-# et de les ajouter dans une nouvelle colonne du fichier taxonomie.csv
+######################################################
+# Ce script permet d'obtenir les TSN des noms scientifiques 
+# et de les ajouter dans une nouvelle colonne du fichier taxonomie.csv, colonne = TSN
+# il crée également un nouveau fichier avec les TSN : "taxonomie_TSN.csv"
+
+# Créé par Amélie LeBlanc
+# Date : Création en avril 2025
+######################################################
+
 
 # Chargement des packages nécessaires
 library(ritis)
