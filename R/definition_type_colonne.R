@@ -1,5 +1,5 @@
 ######################################################
-# Ce script définit le type de chaque colonne
+# Ce script définit le type de chaque colonne, il est utilisé dans la fonction assemblage
 
 # Créé par Mélina Chicoine
 # Date : Création en mars 2025
@@ -31,8 +31,8 @@ col_types <- cols(
 )
 
 # Fonction pour charger un fichier et appliquer les corrections
-type_colonne_csv <- function(file_path) {
+definition_type_colonne <- function(file_path) {
   df <- read_csv(file_path, col_types = col_types, col_names = TRUE, na = c("", "NA"))
-  return(df)  # Pas de conversion des dates ici
+  return(df)  
 }
 
