@@ -113,10 +113,10 @@ list(
       rmarkdown::render(
         input = "rapport_initial.Rmd",
         output_file = "rapport_final.html",
-        output_dir = "rapport",
+        output_dir = "Rapport",
         quiet = TRUE
       )
-      "rapport/rapport_final.html"
+      "Rapport/rapport_final.html"
     },
     format = "file"
   )

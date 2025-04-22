@@ -16,25 +16,25 @@ Ce projet vise à automatiser l'importation, la vérification, la transformation
 
 -   Générer automatiquement une base de données SQLite relationnelle complète.
 
--   Générer 3 figures basées sur les données et un rapport pour en faire l'analyse
+-   Générer 3 figures basées sur les données et un rapport pour en faire l'analyse.
 
 -   Rendre le processus entièrement reproductible grâce au package targets.
 
 ### Contexte
 
-Ce projet s'inscrit dans une démarche de standardisation de données entomologiques dans le cadre d'études sur la répartition et l’abondance des papillons. Les jeux de données proviennent de sources variées, et leur hétérogénéité nécessite un important travail de préparation avant analyse.
+Ce projet s'inscrit dans une démarche de standardisation de données entomologiques dans le cadre d'études sur la répartition et l’abondance des papillons. Les jeux de données proviennent de sources variées, et leur hétérogénéité nécessite un important travail de préparation avant l'analyse.
 
 ### Données
 
 Les données ont été fournies par Victor Cameron : [Victor.Cameron\@USherbrooke.ca](mailto:Victor.Cameron@USherbrooke.ca){.email} Elles proviennent de plusieurs collaborateurs.
 
-Lorsque vous possédez le dossier : lepidopteres.zip, simplement ouvrir pour obtenir le dossier lepidopteres. Voir section structure du répertoir pour voir où mettre le dossier lepidopteres
+Lorsque vous possédez le dossier : lepidopteres.zip, simplement ouvrir pour obtenir le dossier lepidopteres. Voir section structure du répertoir pour voir où mettre le dossier lepidopteres.
 
 Les données se trouvant dans le dossier lepidopteres/ :
 
-1.  Des fichiers .csv contenant des observations géoréférencées de lépidoptères répartit selon les années
+1.  Des fichiers .csv contenant des observations géoréférencées de lépidoptères réparties selon les années.
 
-2.  Un fichier taxonomie.csv listant les noms valides utilisés dans les jeux de données ainsi que des informations sur les espèces de papillons
+2.  Un fichier taxonomie.csv listant les noms valides utilisés dans les jeux de données ainsi que des informations sur les espèces de papillons.
 
 ### Méthodes
 
