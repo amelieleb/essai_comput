@@ -190,7 +190,7 @@ Pour les autres fichiers :
 
 ### Comment exécuter le projet et comment reproduire les résultats
 
-Assurez-vous que le dossier `lepidopteres/` est présent à la racine du projet. Il doit contenir tous les fichiers .csv bruts, 
+Assurez-vous que le dossier `lepidopteres/` est présent à la racine du projet. Il doit contenir tous les fichiers .csv bruts,
 
 Ouvrez le projet dans RStudio (ou une session R avec le bon répertoire de travail).
 
@@ -199,8 +199,8 @@ Exécutez la pipeline avec `{targets}` en lançant la commande suivante dans la 
 ```{r}
 targets::tar_make()
 ```
-Cela exécutera tous les scripts nécessaires (nettoyage, transformation, création de la base SQLite et production des graphiques) en respectant les dépendances.
-Vous obtiendrez un rapport final dans le dossier rapport.
+
+Cela exécutera tous les scripts nécessaires (nettoyage, transformation, création de la base SQLite et production des graphiques) en respectant les dépendances. Vous obtiendrez un rapport final dans le dossier rapport.
 
 ### Comment accéder aux données et aux ressources
 
