@@ -30,7 +30,7 @@ list(
   # 2.1 Vérifie les noms des colonnes avant la correction
   tar_target(verif1, verification_colonnes("lepidopteres")),
   # 2.2 Applique la correction des noms des colonnes
-  tar_target(correction, correction_des_noms("lepidopteres")),
+  tar_target(correction, correction_nom_colonne("lepidopteres")),
   # 2.3 Vérifie les noms des colonnes après la correction
   tar_target(verif2, verification_colonnes("lepidopteres")),
   
@@ -61,7 +61,7 @@ list(
   tar_target(converti_date, conversion_date(uniformise)),
   
   # 10. Ajoute des TSN dans la base de données taxonomie
-  tar_target(tsn, TSN_ajout("lepidopteres")),
+  tar_target(tsn, ajout_TSN("lepidopteres")),
   # 11. Cible ajouté pour utiliser taxonomie_TSN.csv
   tar_target(
     taxonomie_fichier,
