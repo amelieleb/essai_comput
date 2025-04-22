@@ -1,0 +1,8 @@
+---
+title: "Markdown_comput"
+author: "Mélina Chcoine, Amélie LeBlanc, Jérémy Mainville-Gamache et Amélie Ironman-Rochon"
+date: "2025-04-22"
+output: html_document
+---
+
+
