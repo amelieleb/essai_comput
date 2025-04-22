@@ -81,73 +81,65 @@ Un fichier lepidoptere.sqlite contenant 5 tables relationnelles :
 
 ``` bash
 R/
-├── assemblage_csv.R              # Assemble tous les fichiers CSV en une table unique
-├── conversion_date.R             # Convertit les dates en format Date
-├── coordonnees.R                 # Valide les coordonnées géographiques (lat/lon)
-├── correction_des_noms.R         # Corrige les noms de colonnes selon un standard
-├── correction_year_obs.R         # Corrige les années d'observation incohérentes
-├── corriger_annee.R              # Standardise les formats d’années (ex: 20 → 2020)
-├── creer_base_lepidoptere.R      # Crée la base de données SQLite finale
-├── erreur_detection.R            # Détecte certaines erreurs (peut être obsolète)
-├── Fct_time.R                    # Reformate les temps HHMMSS en HH:MM:SS
-├── nom_colonne_correction.R      # Harmonise les noms de colonnes
-├── sauvegarde_dossier.R          # Crée une copie de sauvegarde du dossier de données
-├── TSN.R                         # Ajoute les identifiants taxonomiques TSN
-├── type_colonne.R                # Corrige les types de colonnes (texte vs nombre)
-├── uniformisation_dates.R        # Uniformise les formats de dates
-├── verification_colonnes.R       # Vérifie la structure des colonnes dans les fichiers
-├── verification_valeurs.R        # Détecte les valeurs aberrantes ou manquantes
-├── verification_year_obs.R       # Vérifie la validité des années d’observation
-├── Script_figure_abondance_par_annee.R  # Script (actuellement vide) 
+├── ajout_TSN.R                        # Ajoute les identifiants taxonomiques TSN dans la taxonomie
+├── assemblage_csv.R                  # Assemble tous les fichiers .csv en un seul tableau
+├── conversion_date.R                # Convertit la colonne `dwc_event_date` en format Date
+├── correction_nom_colonne.R         # Corrige les noms de colonnes vers un format standard
+├── correction_year_obs.R            # Applique les corrections aux années non valides (hors 1800–2050)
+├── creer_base_lepidoptere.R         # Crée la base de données SQLite à partir des données nettoyées
+├── definition_type_colonne.R        # Corrige les types des colonnes (ex : caractères ou numériques)
+├── liste_correction_year_obs.R      # Contient les règles manuelles de correction des années
+├── liste_nom_colonne.R              # Contient la liste de noms de colonnes valides attendues
+├── sauvegarde_dossier.R             # Fait une copie de sauvegarde du dossier de données
+├── Script_figure_abondance_par_année.R  # (Vide) Script pour générer des figures d'abondance par année
+├── uniformisation_dates.R           # Reformate les dates dans un format standard (YYYY-MM-DD)
+├── uniformisation_obs_variable.r    # Uniformise les noms de la variable observée (ex : "presence" → "occurrence")
+├── uniformisation_time_obs.R        # Reformate les temps `time_obs` en HH:MM:SS
+├── verification_colonnes.R          # Vérifie que les colonnes attendues sont présentes
+├── verification_coordonnees.R       # Vérifie que les coordonnées géographiques sont valides
+├── verification_valeurs.R           # Vérifie la validité des valeurs et détecte les manquants ou aberrants
+├── verification_year_obs.R          # Vérifie la cohérence des années dans `year_obs`
 ```
 
 # Description des fichiers
 
--   `lepidopteres/` : fichiers CSV bruts incluant `taxonomie.csv`.
+Chaque script contenu dans le dossier R/ correspond à une étape du pipeline de nettoyage, de transformation ou de structuration des données :
 
--   `taxonomie_TSN.csv` : version enrichie automatiquement avec les identifiants TSN.
+ajout_TSN.R : ajoute les identifiants taxonomiques TSN aux noms scientifiques à l’aide du package {ritis}.
 
--   `_targets.R` : définition complète de la pipeline avec `{targets}`.
+assemblage_csv.R : assemble tous les fichiers .csv (sauf taxonomie) en une seule table complète des observations.
 
--   `_targets/` : dossier généré automatiquement par `{targets}` contenant les métadonnées du pipeline.
+conversion_date.R : convertit la colonne dwc_event_date au format Date pour les analyses temporelles.
 
--   `lepidoptere.sqlite` : base de données SQLite finale, structurée en tables relationnelles, va être créée avec le target
+correction_nom_colonne.R : harmonise les noms de colonnes selon la référence définie dans liste_nom_colonne.R.
 
-Fonctions contenues dans le dossier R/ - `assemblage_csv.R` : assemble tous les fichiers CSV du dossier en une seule table de données unifiée.
+correction_year_obs.R : corrige les années d’observation invalides (hors intervalle 1800–2050), remplaçant les erreurs par NA ou une valeur plausible.
 
--   `conversion_date.R` : convertit la colonne dwc_event_date au format Date pour les traitements temporels.
+creer_base_lepidoptere.R : crée une base de données SQLite finale et relationnelle à partir des données nettoyées.
 
--   `coordonnees.R` : ajoute une colonne valid_coords pour identifier les coordonnées valides selon les bornes acceptées.
+definition_type_colonne.R : corrige les types de colonnes mal interprétés (ex : chaînes de caractères lues comme numériques).
 
--   `correction_des_noms.R` : corrige les erreurs typographiques et harmonise les noms de colonnes selon une référence.
+liste_correction_year_obs.R : contient les règles manuelles de correction des années d’observation erronées.
 
-!!!!!- `correction_year_obs.R` : corrige les années d'observation invalides en les remplaçant par NA ou par une année plausible.
+liste_nom_colonne.R : liste de référence des noms de colonnes attendus dans les fichiers d’observation.
 
--   `corriger_annee.R` : standardise les années mal encodées.
+sauvegarde_dossier.R : génère une copie de sauvegarde du dossier lepidopteres/ avant toute modification par le pipeline.
 
--   `creer_base_lepidoptere.R` : génère une base de données relationnelle SQLite à partir des données nettoyées.
+Script_figure_abondance_par_année.R : script (actuellement vide) pour produire des figures d’abondance annuelle.
 
--   `Fct_time.R` : transforme les champs time_obs de type HHMMSS en HH:MM:SS.
+uniformisation_dates.R : standardise les dates (ex. 2023-4-7 → 2023-04-07) pour une cohérence entre les fichiers.
 
--   `nom_colonne_correction.R` : harmonise les noms de colonnes selon une liste de correspondances standardisées.
+uniformisation_obs_variable.R : détecte et uniformise les valeurs de obs_variable (par ex. "presence" → "occurrence").
 
--   `sauvegarde_dossier.R` : crée une copie de sauvegarde du dossier de données pour éviter toute perte accidentelle.
+uniformisation_time_obs.R : reformate les valeurs time_obs du type HHMMSS en HH:MM:SS.
 
--   `TSN.R` : utilise le package ritis pour ajouter les identifiants taxonomiques TSN aux noms scientifiques.
+verification_colonnes.R : vérifie la présence et l’ordre des colonnes obligatoires dans chaque fichier.
 
--   `type_colonne.R` : corrige les types de colonnes mal interprétés (e.g. nombres lus comme caractères).
+verification_coordonnees.R : ajoute une colonne valid_coords selon la validité des coordonnées (lat entre 0 et 90, lon entre -180 et 0).
 
--   `uniformisation_dates.R` : rend les formats de dates cohérents entre les fichiers CSV.
+verification_valeurs.R : détecte des valeurs aberrantes ou manquantes dans des colonnes comme obs_value, day_obs ou obs_variable.
 
--   `verification_colonnes.R` : vérifie que chaque fichier possède les colonnes attendues et signale les erreurs.
-
--   `verification_valeurs.R` : repère des erreurs potentielles sur les jours ou l'abondance, presence ou occurence
-
--   `verification_year_obs.R` : détecte les années aberrantes ou manquantes dans les colonnes year_obs.
-
--   `erreur_detection.R` (à retirer si non utilisé) : fonction de détection d'erreurs, si elle est encore active dans le projet.
-
--   `Script_figure_abondance_par_annee.R` (vide actuellement)
+verification_year_obs.R : repère les années aberrantes ou absentes dans la colonne year_obs.
 
 # Instructions
 
