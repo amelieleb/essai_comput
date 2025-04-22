@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Les fluctuations de diversité des lépidoptères au Québec"
 author: "Mélina Chcoine, Amélie LeBlanc, Jérémy Mainville-Gamache et Amélie Ironman-Rochon"
@@ -7,3 +8,13 @@ output: html_document
 
 ## Introduction
 
+=======
+---
+title: "Markdown_comput"
+author: "Mélina Chcoine, Amélie LeBlanc, Jérémy Mainville-Gamache et Amélie Ironman-Rochon"
+date: "2025-04-22"
+output: html_document
+---
+
+
+>>>>>>> 8c2921bdceefab23f5ced72e929420868dbdb7b7
