@@ -49,7 +49,7 @@ list(
   
   # 6. Détecte les différents termes utilisés et uniformise les termes utilisées
   #    dans "obs_variable"
-  tar_target(variable_uniforme, uniforme_occ_pres("lepidopteres")),
+  tar_target(variable_uniforme, uniformisation_obs_variable("lepidopteres")),
   
   # 7. Assemble les données en un seul tableau
   tar_target(donnees_assemblees, assemblage_csv("lepidopteres")),

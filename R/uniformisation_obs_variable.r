@@ -12,7 +12,7 @@ library(readr)
 library(dplyr)
 library(stringr)
 
-uniforme_occ_pres <- function(folder_path){
+uniformisation_obs_variable <- function(folder_path){
   message("Début de l'uniformisation des termes de obs_variable")
   
   # Lister tous les fichiers CSV sauf taxonomie
