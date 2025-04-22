@@ -8,7 +8,7 @@
 
 
 # Fonction pour corriger les années, appelé dans la fonction correction_year_obs
-corriger_annee <- function(x, ligne = NULL, fichier = NULL) {
+liste_correction_year_obs <- function(x, ligne = NULL, fichier = NULL) {
   if (is.na(x) || x == "") return(NA)
   
   x <- as.character(x)

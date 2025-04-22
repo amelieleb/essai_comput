@@ -1,6 +1,6 @@
 ######################################################
 # Ce script mets les valeurs de la colonne years_obs en caractère pour appliquer une correction pour uniformisé le format d'affichage 
-# Attention, le script appelle une autre fonction : corriger_annee, présente dans corriger_annee.R. Cette fonction contient les corrections nécessaire selon le format d'affichage des années initiales
+# Attention, le script appelle une autre fonction : liste_correction_year_obs, présente dans liste_correction_year_obs.R. Cette fonction contient les corrections nécessaire selon le format d'affichage des années initiales
 
 # Créé par Mélina Chicoine et Amélie Ironman-Rochon
 # Date : Création en mars 2025
@@ -26,7 +26,7 @@ correction_year_obs <- function(folder_path) {
     if ("year_obs" %in% names(df)) {
       df <- df %>%
         mutate(year_obs = as.character(year_obs),  # S'assurer que c'est du texte
-               year_obs = sapply(year_obs, corriger_annee))  # Appliquer la correction, pour les différentes correction aller voir le script : corriger_annee
+               year_obs = sapply(year_obs, liste_correction_year_obs))  # Appliquer la correction, pour les différentes correction aller voir le script : liste_correction_year_obs
       
       # Sauvegarder le fichier corrigé
       write_csv(df, file)
