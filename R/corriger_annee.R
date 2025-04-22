@@ -1,3 +1,13 @@
+######################################################
+# Ce script est utilisé dans la fonction correction_year_obs. Il contient toute les corrections pour avoir un format uniforme d'année YYYY pour la colonne year_obs. 
+# Selon le format de l'année iniale, la correction va s'appliquée pour uniformisé le format des années. 
+
+# Créé par Amélie Ironman-Rochon et Mélina Chicoine
+# Date : Création en mars 2025
+######################################################
+
+
+# Fonction pour corriger les années, appelé dans la fonction correction_year_obs
 corriger_annee <- function(x, ligne = NULL, fichier = NULL) {
   if (is.na(x) || x == "") return(NA)
   
@@ -22,12 +32,12 @@ corriger_annee <- function(x, ligne = NULL, fichier = NULL) {
     if (!is.na(date_try)) return(year(date_try))
   }
   
-  # Cas 4 : Année seule
+  # Cas 4 : Année seule YYYY
   if (grepl("^\\d{4}$", x)) {
     return(as.integer(x))
   }
   
-  # Si aucun format ne correspond
+  # Si aucun format ne correspond, renvoit un message pour qu'on voit le problème possible
   msg <- paste0("Aucun format valide détecté pour la valeur : '", x, "'")
   if (!is.null(fichier)) msg <- paste0(msg, " dans le fichier ", fichier)
   if (!is.null(ligne)) msg <- paste0(msg, " (ligne ", ligne, ")")
@@ -35,3 +45,4 @@ corriger_annee <- function(x, ligne = NULL, fichier = NULL) {
   
   return(NA)
 }
+
