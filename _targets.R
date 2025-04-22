@@ -112,11 +112,11 @@ list(
       figure_richesse
       rmarkdown::render(
         input = "rapport_initial.Rmd",
-        output_file = "rapport_final.html",
+        output_file = "rapport_final.pdf",
         output_dir = "Rapport",
         quiet = TRUE
       )
-      "Rapport/rapport_final.html"
+      "Rapport/rapport_final.pdf"
     },
     format = "file"
   )
