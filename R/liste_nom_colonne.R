@@ -12,7 +12,7 @@ library(dplyr)
 library(stringr)
 
 # Fonction pour corriger les noms de colonnes incohérents dans un dataframe
-nom_colonne_correction <- function(df) {
+liste_nom_colonne <- function(df) {
   noms <- colnames(df) %>%
     str_trim() %>%                  # Enlève les espaces superflus
     tolower() %>%                   # Passe en minuscules
