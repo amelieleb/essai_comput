@@ -1,4 +1,10 @@
-# _targets.R
+######################################################
+# Ce script réalise le target de toutes les fonctions présentes dans R/
+
+# Créé par Mélina Chicoine, Amélie LeBlanc, Amélie Ironman-Rochon et Jérémy Mainville-Gamache
+# Date : Création en avril 2025
+######################################################
+
 
 # Charger les packages nécessaires
 library(targets)
