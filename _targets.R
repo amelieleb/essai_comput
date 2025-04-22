@@ -103,7 +103,6 @@ list(
     format = "file"
   ),
   
-  # 16. Génération automatique du rapport Markdown
   tar_target(
     rapport,
     {
@@ -112,12 +111,13 @@ list(
       figure_richesse
       rmarkdown::render(
         input = "rapport_initial.Rmd",
-        output_file = "rapport_final.pdf",
+        output_file = "rapport_final.html",
         output_dir = "Rapport",
         quiet = TRUE
       )
-      "Rapport/rapport_final.pdf"
+      "Rapport/rapport_final.html"
     },
-    format = "file"
+    format = "file",
+    cue = tar_cue(mode = "always")  
   )
 )

@@ -1,39 +1,18 @@
 ---
-title: Projet de session BIO500 - Changement spatiale et temporel des lépidoptères
-author:
-  - name: Mélina Chicoine
-    affiliation: 1
-  - name: Amélie LeBlanc
-    affiliation: 1
-  - name: Amélie Ironman-Rochon
-    affiliation: 1
-  - name: Jérémy Mainville-Gamache
-    affiliation: 1
-    
-address:
-  - code: 1
-    address: Université de Sherbrooke, Biologie, Boul. de l'Université, Sherbrooke, Québec, J1N 3C6
-
-abstract: |
-  Il est de plus en plus courant de récolter de grandes bases de données afin de procéder à des analyses sur de longues périodes. Les lépidoptères sont un groupe taxonomique qui ont reçu beaucoup d’attention ces dernières années à la récolte et à la collecte de données, malgré une diminution de leur richesse spécifique et de leur biomasse. Lors de notre analyse, nous avons regardé les fluctuations des différentes espèces de lépidoptères à travers le temps, à partir de multiples fichiers de données de 1859 jusqu’en 2023. Nous avons été en mesure de combiner ces fichiers de données afin de créer une seule base de données, nous avons nettoyé cette base de données, et nous l’avons optimisée en différentes tables. Avec cette nouvelle base de données, nous avons voulu brosser un portrait global des fluctuations des espèces de lépidoptères au Québec. Trois figures représentatives de notre base de données ont été modélisées afin de répondre à nos différents questionnements de recherche.  
-
-keywords:
-  - Lépidoptères
-  - Québec
-  - Temporelle
-  - Spatiale
-  
-pnas_type: pnasresearcharticle
-bibliography: Bibliographie.bib
-csl: pnas.csl
-lineno: false
-output: rticles::pnas_article
-editor_options: 
-  markdown: 
-    wrap: 72
+title: "Projet de session BIO500 - Changement spatiale et temporel des lépidoptères"
+author: "Mélina Chicoine, Amélie LeBlanc, Amélie Ironman-Rochon et Jérémy Mainville-Gamache"
+date: "2025-04-22"
+output: html_document
+biblography: "Bibliographie.bib"
 ---
 
+
 Voici le [lien](https://github.com/amelieleb/Final_mod.git) pour le GitHub de notre projet.
+
+
+## abstract:
+  Il est de plus en plus courant de récolter de grandes bases de données afin de procéder à des analyses sur de longues périodes. Les lépidoptères sont un groupe taxonomique qui ont reçu beaucoup d’attention ces dernières années à la récolte et à la collecte de données, malgré une diminution de leur richesse spécifique et de leur biomasse. Lors de notre analyse, nous avons regardé les fluctuations des différentes espèces de lépidoptères à travers le temps, à partir de multiples fichiers de données de 1859 jusqu’en 2023. Nous avons été en mesure de combiner ces fichiers de données afin de créer une seule base de données, nous avons nettoyé cette base de données, et nous l’avons optimisée en différentes tables. Avec cette nouvelle base de données, nous avons voulu brosser un portrait global des fluctuations des espèces de lépidoptères au Québec. Trois figures représentatives de notre base de données ont été modélisées afin de répondre à nos différents questionnements de recherche.  
+  
 
 # Introduction
 
@@ -47,28 +26,28 @@ Une fois la base de données formée, il a été possible de produire les figure
 
 
 # Résultats
-
 ```{r, echo = FALSE}
 knitr::include_graphics("figures/figure_abondance.png")
 ```
+Figure 1. Diversité d'espèces de lépidoptères observés au Québec entre les années 1865 et 2023.
 
 
 ```{r, echo = FALSE}
 knitr::include_graphics("figures/figure_diversite.png")
 ```
+Figure 2. Abondance relative des trois espèces les plus abondantes pour chaque groupes d'années de 20 ans, ainsi que leur nom scientifique.
+
 
 ```{r, echo = FALSE}
 knitr::include_graphics("figures/figure_richesse.png")
 ```
-
+Figure 3. Richesse spécifique d'espèces de lépidoptères pour chaque coordonnées enregistrées au Québec par groupes d'années de 20 ans.
 
 # Discussion
 
 Comme mentionné brièvement dans les méthodes, avec notre nouvelle base de données synthétisée, nous avons pu créer trois figures répondant à chacune des questions que nous nous sommes posés. La première figure ci-dessous, retrace le nombre d’espèces enregistrées par année, au Québec, sur une longue période, soit de 1859 à 2023. 
 
 Nous pouvons distinguer sur le graphique que la quantité d’espèces enregistrées dans notre base donnée augmente à travers les années, et qu’il y a une augmentation massive marquée par plusieurs pics après l’année 2000. Pourtant, nous avons vu que la richesse spécifique des lépidoptères est de plus en plus en déclin depuis quelques années. Cela peut être expliqué par le fait qu’il est difficile de récolter une base de données sur toute la quantité d’espèces des lépidoptères, et que cette pratique d’un grand partage de données ne se fait pas depuis si longtemps (@summerville_temporal_2005). En effet, selon l’article de revue de Summerville et Crist en 2008 sur la structure et la conservation des communautés de lépidoptères dans des forêts emménagées d’Amérique du Nord mentionne qu’il est très difficile de bien estimer l’abondance des espèces de lépidoptères, puisque ceux-ci sont extrêmement diversifiés. De plus, dans les premières années où les données ont été collectées, le nombre n’est pas semblable à celui amassé lorsque les technologies ont avancé, ainsi, il y a une augmentation du nombre d’espèces selon notre figure.  
-
- 
 
 Pour ce qui est de la deuxième figure présentée, celle-ci représente les abondances relatives en pourcentage des trois espèces les plus abondantes au sein d’une période de 20 ans.  
 
@@ -85,4 +64,4 @@ Le dernier graphique modélisé avait pour but d’évaluer visuellement où l�
 Selon la figure 3, nous pouvons remarquer une plus grande biodiversité dans le sud du Québec, mais que la limite monte de plus en plus vers le nord. Ce changement peut être dû au réchauffement climatique, ce qui permet aux papillons d’aller plus au nord pendant l’été. Néanmoins, on observe une plus grande une plus grande richesse spécifique au niveau de la frontière entre la province de Québec et les États-Unis. 
 
 
-# Bibliographie {#Bibliography .unnumbered}
+# Bibliographie
