@@ -86,6 +86,8 @@ Un dossier figures avec 3 figures sur les données de lépidoptères
 
 Un dossier rapport contenant un rapport final contenant également les figures
 
+Un fichier bibliographie.bib qui contient la bibliographie
+
 # Structure du répertoire
 
 ``` bash
@@ -98,6 +100,7 @@ Un dossier rapport contenant un rapport final contenant également les figures
 ├── lepidoptere.sqlite        # Base de données finale
 ├── rapport_initial.Rmd       # Rapport initial sans les figures mais y faisant appel
 ├── rapport/                  # Dossier allant contenir le rapport final généré par targets 
+├── Bibliographie.bib         # Bibliographie des sources utilisés dans le rapport
 └── README.md                 # Documentation (ce fichier)
 ```
 
